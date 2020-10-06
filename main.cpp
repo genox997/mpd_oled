@@ -125,7 +125,7 @@ public:
       rotate180(false),
       i2c_addr(0),
       i2c_bus(1),
-      reset_gpio(25),
+      reset_gpio(27),
       spi_dc_gpio(OLED_SPI_DC),
       spi_cs(OLED_SPI_CS0),
       // Default for source of status values depends on the player
@@ -405,7 +405,7 @@ void draw_spect_display(ArduiPi_OLED &display, const display_info &disp_info)
   const int W = 6;  // character width
   draw_spectrum(display, 0, 0, SPECT_WIDTH, 32, disp_info.spect);
   draw_connection(display, 128-2*W, 0, disp_info.conn);
-  draw_triangle_slider(display, 128-5*W, 1, 11, 6, disp_info.status.get_volume());
+  draw_text(display, 128-5*W, 1, 2, std::to_string(disp_info.status.get_volume()));
   if (disp_info.status.get_kbitrate() > 0)
     draw_text(display, 128-10*W, 0, 4, disp_info.status.get_kbitrate_str());
 

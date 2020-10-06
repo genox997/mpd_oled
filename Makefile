@@ -11,7 +11,7 @@ else ifeq ($(PLAYER),MOODE)
 	PLAYERLIBS=-li2c
 endif
 
-CPPFLAGS=-W -Wall -Wno-unused-variable -Wno-unused-parameter \
+CPPFLAGS=-g -std=c++11 -W -Wall -Wno-unused-variable -Wno-unused-parameter \
 	 -Wno-strict-aliasing -Ofast -D$(PLAYER)
 
 PROG_NAME=mpd_oled
